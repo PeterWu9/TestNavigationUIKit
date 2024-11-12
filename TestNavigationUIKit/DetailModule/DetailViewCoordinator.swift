@@ -19,7 +19,8 @@ final class DetailViewCoordinator {
     
     func makeUIViewController() -> UIViewController {
         let detailViewViewModel = DetailViewModel(
-            onShowDetailViewButtonTapped: self.presentDetailView
+            onShowDetailViewButtonTapped: self.presentDetailView,
+            onLinkDetailViewButtonTapped: self.showDetailView
         )
         let detailView = DetailView(id: self.id, viewModel: detailViewViewModel)
         let hostingController = UIHostingController(rootView: detailView)
@@ -35,5 +36,14 @@ final class DetailViewCoordinator {
         let detailView = detailViewCoordinator.makeUIViewController()
         newNavigationController.setViewControllers([detailView], animated: false)
         navigationController?.present(newNavigationController, animated: true)
+    }
+    
+    private func showDetailView() {
+        let detailViewCoordinator = DetailViewCoordinator(
+            navigationController: self.navigationController,
+            id: self.id + 1
+        )
+        let detailView = detailViewCoordinator.makeUIViewController()
+        navigationController?.pushViewController(detailView, animated: true)
     }
 }

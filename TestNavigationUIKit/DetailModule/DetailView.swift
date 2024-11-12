@@ -27,6 +27,12 @@ struct DetailView: View {
                         Text("Show Detail View \(id + 1)")
                     }
                 )
+                
+                Button {
+                    viewModel.linkDetailViewButtonTapped()
+                } label: {
+                    Text("Link to Detail View \(id + 1)")
+                }
             }
         }
         .task {
