@@ -1,5 +1,5 @@
 //
-//  DetailViewCoordinator.swift
+//  DetailModuleCoordinator.swift
 //  TestNavigationUIKit
 //
 //  Created by Peter Wu on 11/12/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-final class DetailViewCoordinator {
+final class DetailModuleCoordinator {
     private weak var navigationController: UINavigationController?
     let id: Int
     
@@ -29,7 +29,7 @@ final class DetailViewCoordinator {
     
     private func presentDetailView() {
         let newNavigationController = AppNavigationControllerProvider.create()
-        let detailViewCoordinator = DetailViewCoordinator(
+        let detailViewCoordinator = DetailModuleCoordinator(
             navigationController: newNavigationController,
             id: self.id + 1
         )
@@ -39,7 +39,7 @@ final class DetailViewCoordinator {
     }
     
     private func showDetailView() {
-        let detailViewCoordinator = DetailViewCoordinator(
+        let detailViewCoordinator = DetailModuleCoordinator(
             navigationController: self.navigationController,
             id: self.id + 1
         )

@@ -28,7 +28,7 @@ final class MainModuleCoordinator {
     
     private func presentDetailView() {
         let newNavigationControler = AppNavigationControllerProvider.create()
-        let detailViewCoordinator = DetailViewCoordinator(
+        let detailViewCoordinator = DetailModuleCoordinator(
             navigationController: newNavigationControler,
             id: 0
         )
